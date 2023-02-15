@@ -1,13 +1,15 @@
 {
-  "miniprogramRoot": "./dist",
-  "projectname": "taro-bug",
-  "description": "taro-bug",
-  "appid": "touristappid",
+  "projectname": "myApp",
+  "description": "demo",
+  "appid": "wx514a3590bdc592ef",
   "setting": {
     "urlCheck": true,
     "es6": false,
+    "enhance": false,
+    "compileHotReLoad": false,
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "libVersion": "2.30.0"
 }

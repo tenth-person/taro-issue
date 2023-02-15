@@ -1,7 +1,7 @@
-import { Component } from 'react'
+import { Component, PropsWithChildren } from 'react'
 import './app.less'
 
-class App extends Component {
+class App extends Component<PropsWithChildren> {
 
   componentDidMount () {}
 
@@ -9,12 +9,8 @@ class App extends Component {
 
   componentDidHide () {}
 
-  componentDidCatchError () {
-    console.log(0)
-  }
-
-  // this.props.children 是将要会渲染的页面
   render () {
+    // this.props.children 是将要会渲染的页面
     return this.props.children
   }
 }

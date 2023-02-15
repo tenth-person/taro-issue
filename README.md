@@ -1,2 +1,0 @@
-# taro-issue
-taro-issue

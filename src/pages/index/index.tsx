@@ -1,44 +1,45 @@
-import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import styles from './index.module.scss'
+import { Component, PropsWithChildren } from 'react'
+import { ScrollView, View } from '@tarojs/components'
+import './index.less'
 
-export default class Index extends Component {
-
-  componentDidMount () {
-
+export default class Index extends Component<PropsWithChildren> {
+  state: any
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: true,
+    }
   }
 
-  //  监听用户下拉刷新事件。
-  onPullDownRefresh() {
-    console.warn('------------------------------------- onPullDownRefresh => index -------------------------------------')
+  componentWillMount () {
     setTimeout(() => {
-      Taro.stopPullDownRefresh()
-    }, 800)
-  }
-
-  onSwitchTab() {
-    // Taro.switchTab({
-    //   url: '/pages/user/index'
-    // })
-
-    Taro.navigateTo({
-      url: '/pages/user/index'
-    })
+      this.setState({
+        loading: false,
+      })
+    }, 1500)
   }
 
   render () {
+    const { loading } = this.state
+
     return (
-      <View className={styles.page} onClick={this.onSwitchTab.bind(this)}>
-        <Text>首页</Text>
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
-        <View className={styles.content} />
+      <View className='index'>
+        <ScrollView scrollY enhanced showScrollbar={false} style={{ height: 600 }}>
+          {
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((_tab: any, key: number) => {
+              return (
+                <View key={key} style={{ height: 200 }}>
+                  {key}
+                </View>
+              )
+            })
+          }
+        </ScrollView>
+
+        {loading && <View>loading</View>}
+        {/*<View>*/}
+        {/*  {loading && <View>loading</View>}*/}
+        {/*</View>*/}
       </View>
     )
   }

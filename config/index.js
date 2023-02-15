@@ -1,6 +1,6 @@
 const config = {
-  projectName: 'taro-bug',
-  date: '2021-12-27',
+  projectName: 'myApp',
+  date: '2023-2-15',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
@@ -19,6 +19,10 @@ const config = {
     }
   },
   framework: 'react',
+  compiler: 'webpack5',
+  cache: {
+    enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+  },
   mini: {
     postcss: {
       pxtransform: {
@@ -37,29 +41,11 @@ const config = {
         enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
-          generateScopedName: '[name]__[local]___[hash:base64:5]'
+          generateScopedName: '[hash:base64:8]'
         }
       }
     }
   },
-  h5: {
-    publicPath: '/',
-    staticDirectory: 'static',
-    postcss: {
-      autoprefixer: {
-        enable: true,
-        config: {
-        }
-      },
-      cssModules: {
-        enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
-        config: {
-          namingPattern: 'module', // 转换模式，取值为 global/module
-          generateScopedName: '[name]__[local]___[hash:base64:5]'
-        }
-      }
-    }
-  }
 }
 
 module.exports = function (merge) {
