@@ -1,28 +1,15 @@
-import React from 'react'
-import Taro, { useLoad } from '@tarojs/taro'
-import { Button, Text, View } from '@tarojs/components'
-import SvgIcon from '@/components/svg-icon'
-import styles from './index.module.less'
+import { View, Text } from '@tarojs/components'
+import { useLoad } from '@tarojs/taro'
+import './index.less'
 
-
-
-export default function Index() {
+export default function Index () {
   useLoad(() => {
-    console.log('Page loaded. Index')
+    console.log('Page loaded.')
   })
 
   return (
-    <View className={styles.page}>
-      <Text>
-        首页
-      </Text>
-
-      <SvgIcon
-        src={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 63"><defs><style>.a{fill:#ffdd00;}.b{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:5px;}</style></defs><circle class="a" cx="31.5" cy="31.5" r="31.5"/><path class="b" d="M19.28,41.14s13.47,11.45,21.84-1.21a3.41,3.41,0,0,1,4.31-1.25h0"/></svg>`}
-        className={styles.icon}
-      />
-
-      <Button className={styles.button} onClick={() => Taro.navigateTo({ url: '/pages/test/index' })}>跳转</Button>
+    <View className='index'>
+      <Text>Hello world!</Text>
     </View>
   )
 }
